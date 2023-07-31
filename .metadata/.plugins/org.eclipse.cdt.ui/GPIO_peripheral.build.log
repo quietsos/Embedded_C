@@ -1,4 +1,4 @@
-15:59:44 **** Incremental Build of configuration Release for project GPIO_peripheral ****
+18:02:26 **** Incremental Build of configuration Release for project GPIO_peripheral ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega328p GPIO_peripheral.elf
@@ -16,5 +16,5 @@ Data:          0 bytes (0.0% Full)
 Finished building: sizedummy
  
 
-15:59:45 Build Finished. 0 errors, 0 warnings. (took 1s.272ms)
+18:02:27 Build Finished. 0 errors, 0 warnings. (took 1s.368ms)
 

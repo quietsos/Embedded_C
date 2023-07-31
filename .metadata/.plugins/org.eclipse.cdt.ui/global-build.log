@@ -1,33 +1,37 @@
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega328p GPIO_peripheral.elf
-AVR Memory Usage
-----------------
-Device: atmega328p
-
-Program:     266 bytes (0.8% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-
-15:59:41 Build Finished. 0 errors, 0 warnings. (took 1s.426ms)
-
-15:59:44 **** Incremental Build of configuration Release for project GPIO_peripheral ****
+00:23:29 **** Incremental Build of configuration Release for project IO_driver ****
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: IO_driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,IO_driver.map -mmcu=atmega328p -o "IO_driver.elf"  ./main.o   
+Finished building target: IO_driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S IO_driver.elf  >"IO_driver.lss"
+Finished building: IO_driver.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex IO_driver.elf  "IO_driver.hex"
+Finished building: IO_driver.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex IO_driver.elf  "IO_driver.eep"
+Finished building: IO_driver.eep
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega328p GPIO_peripheral.elf
+avr-size --format=avr --mcu=atmega328p IO_driver.elf
 AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:     266 bytes (0.8% Full)
+Program:     294 bytes (0.9% Full)
 (.text + .data + .bootloader)
 
-Data:          0 bytes (0.0% Full)
+Data:          1 bytes (0.0% Full)
 (.data + .bss + .noinit)
 
 
