@@ -47,7 +47,6 @@
 #define LOW 0
 
 
-
 // pin define for actuator connected with
 // This pin is the default Arduino uno Onboard led connected.
 #define led PB5
@@ -85,9 +84,6 @@ uint8_t digitalRead(uint8_t pin, uint8_t volatile *port_input_pin_register){
 
 	return ((*port_input_pin_register) & (1 << pin));
 }
-
-
-
 
 
 int main(){

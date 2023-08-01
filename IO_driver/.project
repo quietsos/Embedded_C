@@ -3,6 +3,7 @@
 	<name>IO_driver</name>
 	<comment></comment>
 	<projects>
+		<project>IO_driver</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
