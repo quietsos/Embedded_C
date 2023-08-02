@@ -1,4 +1,4 @@
-11:41:53 **** Incremental Build of configuration Release for project Touch_pad_implementation ****
+11:45:03 **** Incremental Build of configuration Release for project Touch_pad_implementation ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler

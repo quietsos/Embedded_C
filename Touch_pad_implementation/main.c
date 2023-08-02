@@ -134,11 +134,12 @@ int main(void){
 	UART_Init0();
 	uint8_t a =0;
 
+	while(1){
+		a = getKey();
 
+		UART_TxChar0(a);
+	}
 
-	a = getKey();
-
-	UART_TxChar0(a);
 
 
 
