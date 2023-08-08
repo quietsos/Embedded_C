@@ -1,37 +1,38 @@
-23:48:30 **** Incremental Build of configuration Release for project usart_communication ****
+11:43:30 **** Incremental Build of configuration Release for project LCD_display_driver ****
 make all 
-Building file: ../main.cpp
+Building file: ../function.cpp
 Invoking: AVR C++ Compiler
-avr-g++ -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.cpp"
-../main.cpp:7:0: warning: "F_CPU" redefined
- #define F_CPU 16000000L
- ^
-<command-line>:0:0: note: this is the location of the previous definition
-In file included from /usr/lib/avr/include/avr/io.h:99:0,
-                 from ../main.cpp:8:
-../main.cpp: In function ‘void UART_RxChar0()’:
-../main.cpp:14:19: error: return-statement with a value, in function returning 'void' [-fpermissive]
- #define uart0_UDR UDR0
-                   ^
-../main.cpp:36:9: note: in expansion of macro ‘uart0_UDR’
-  return uart0_UDR;
-         ^
-../main.cpp: In function ‘void rxString0(char*)’:
-../main.cpp:46:11: error: void value not ignored as it ought to be
-   myValue = UART_RxChar0();
-           ^
-../main.cpp:58:19: error: ‘printString0’ was not declared in this scope
-  printString0(buff);
-                   ^
-../main.cpp: In function ‘int main()’:
-../main.cpp:76:13: error: too few arguments to function ‘void rxString0(char*)’
-   rxString0();
+avr-g++ -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"function.d" -MT"function.o" -c -o "function.o" "../function.cpp"
+../function.cpp: In function ‘void lcd_enable_pulse()’:
+../function.cpp:22:2: error: ‘LCD_command_port’ was not declared in this scope
+  LCD_command_port |= (1<<EN);
+  ^
+../function.cpp:22:26: error: ‘EN’ was not declared in this scope
+  LCD_command_port |= (1<<EN);
+                          ^
+../function.cpp:23:13: error: ‘_delay_ms’ was not declared in this scope
+  _delay_ms(1);
              ^
-../main.cpp:42:6: note: declared here
- void rxString0(char *buff) {
-      ^
-../main.cpp:71:7: warning: unused variable ‘rec’ [-Wunused-variable]
-  char rec[100];
-       ^
-make: *** [subdir.mk:20: main.o] Error 1
+../function.cpp: At global scope:
+../function.cpp:37:20: error: variable or field ‘lcd_write8bit’ declared void
+ void lcd_write8bit(uint8_t value){
+                    ^
+../function.cpp:37:20: error: ‘uint8_t’ was not declared in this scope
+../function.cpp:53:20: error: variable or field ‘lcd_write4bit’ declared void
+ void lcd_write4bit(uint8_t value){
+                    ^
+../function.cpp:53:20: error: ‘uint8_t’ was not declared in this scope
+../function.cpp:73:1: error: ‘uint8_t’ does not name a type
+ uint8_t read_BF_adress(){
+ ^
+../function.cpp: In function ‘int LCD_wait()’:
+../function.cpp:106:24: error: ‘read_BF_adress’ was not declared in this scope
+  while((read_BF_adress() & 0x00) == 0x00);
+                        ^
+../function.cpp: At global scope:
+../function.cpp:121:18: error: variable or field ‘LCD_command’ declared void
+ void LCD_command(uint8_t cmd){
+                  ^
+../function.cpp:121:18: error: ‘uint8_t’ was not declared in this scope
+make: *** [subdir.mk:23: function.o] Error 1
 "make all" terminated with exit code 2. Build might be incomplete.
